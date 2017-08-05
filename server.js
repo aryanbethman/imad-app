@@ -9,12 +9,88 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+var articleOne = {
+  title: 'Article One | Aryan',
+  heading: 'Article One',
+  content: ` <p>
+               Hi all! Welcome to Article one of http://aryanbethman6.imad.hasura-app.io/.The creator of this page is Aryan Bethmangalkar.
+               I love programming!!Goodbye and Thank you for reading! Hi all! Welcome to Article one of http://aryanbethman6.imad.hasura-app.io/.The creator of this page is Aryan Bethmangalkar.
+               I love programming!!Goodbye and Thank you for reading! Hi all! Welcome to Article one of http://aryanbethman6.imad.hasura-app.io/.The creator of this page is Aryan Bethmangalkar.
+               I love programming!!Goodbye and Thank you for reading! Hi all! Welcome to Article one of http://aryanbethman6.imad.hasura-app.io/.The creator of this page is Aryan Bethmangalkar.
+               I love programming!!Goodbye and Thank you for reading!
+           </p>
+           
+            <p>
+               Hi all! Welcome to Article one of http://aryanbethman6.imad.hasura-app.io/.The creator of this page is Aryan Bethmangalkar.
+               I love programming!!Goodbye and Thank you for reading! Hi all! Welcome to Article one of http://aryanbethman6.imad.hasura-app.io/.The creator of this page is Aryan Bethmangalkar.
+               I love programming!!Goodbye and Thank you for reading! Hi all! Welcome to Article one of http://aryanbethman6.imad.hasura-app.io/.The creator of this page is Aryan Bethmangalkar.
+               I love programming!!Goodbye and Thank you for reading! Hi all! Welcome to Article one of http://aryanbethman6.imad.hasura-app.io/.The creator of this page is Aryan Bethmangalkar.
+               I love programming!!Goodbye and Thank you for reading!
+           </p>
+           
+            <p>
+               Hi all! Welcome to Article one of http://aryanbethman6.imad.hasura-app.io/.The creator of this page is Aryan Bethmangalkar.
+               I love programming!!Goodbye and Thank you for reading! Hi all! Welcome to Article one of http://aryanbethman6.imad.hasura-app.io/.The creator of this page is Aryan Bethmangalkar.
+               I love programming!!Goodbye and Thank you for reading! Hi all! Welcome to Article one of http://aryanbethman6.imad.hasura-app.io/.The creator of this page is Aryan Bethmangalkar.
+               I love programming!!Goodbye and Thank you for reading! Hi all! Welcome to Article one of http://aryanbethman6.imad.hasura-app.io/.The creator of this page is Aryan Bethmangalkar.
+               I love programming!!Goodbye and Thank you for reading!
+           </p>`
+};
+
+function createTemplate (data) {
+    var title = data.title;
+    var heding = data.heading;
+    var content = data.content;
+}
+
+
+
+
+
+var htmlTemplate = `
+<html>
+   <head>
+      ${title}
+       
+        <meta name="viewport" content="width-device-width, initial-scale=1" />
+       
+        <link href="/ui/style.css" rel="stylesheet" />
+       
+   </head>
+   
+   <body>
+       <div class="container">
+             <div>
+           <a href="/">Home</a>
+       </div>
+       <hr/>
+       <h3>
+           ${heading}
+       </h3>
+       <div>
+           4th August 2017
+       </div>
+       <div>
+          
+          ${content}
+           
+       </div>
+       
+       </div>
+       
+   </body>
+   
+</html>`;
+
+return htmlTemplate;}
+
+
 app.get('/article-one.html', function (req, res)
-{res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+{res.send(createTemplate (articleOne));
 });  
 
 app.get('/article-two.html', function (req, res)
-{res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+{res.send(createTemplate (articleOne))
 });  
 
 app.get('/article-three.html', function (req, res)
