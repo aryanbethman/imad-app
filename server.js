@@ -9,7 +9,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var articleOne = {
+var articles = {
+
+'article-one' : {
   title: 'Article One | Aryan',
   heading: 'Article One',
   content: ` <p>
@@ -35,13 +37,34 @@ var articleOne = {
                I love programming!!Goodbye and Thank you for reading! Hi all! Welcome to Article one of http://aryanbethman6.imad.hasura-app.io/.The creator of this page is Aryan Bethmangalkar.
                I love programming!!Goodbye and Thank you for reading!
            </p>`
+},
+'article-two' : {
+    title: 'Article Two | Aryan',
+    heading: 'Article Two',
+    content: ` <p>
+               Hi all! Welcome to Article two of http://aryanbethman6.imad.hasura-app.io/.The creator of this page is Aryan Bethmangalkar.
+               I love programming!!Goodbye and Thank you for reading! </p> `
+               },
+               
+'article-three' : {
+    title: 'Article Three | Aryan',
+    heading: 'Article Three',
+    content: ` <p>
+               Hi all! Welcome to Article three . The creator of this page is Aryan Bethmangalkar.
+               I love programming!!Goodbye and Thank you for reading! };
+               </p>`
+
+}
 };
+    
+
+
 
 function createTemplate (data) {
     var title = data.title;
     var heding = data.heading;
     var content = data.content;
-}
+
 
 
 
@@ -82,20 +105,18 @@ var htmlTemplate = `
    
 </html>`;
 
-return htmlTemplate;}
+return htmlTemplate
+;}
 
 
-app.get('/article-one.html', function (req, res)
-{res.send(createTemplate (articleOne));
+app.get('/:articleName', function (req, res){
+  //articleName == article-one  
+  //articles[articleName] == {} content object for article one
+  var articleName = req.params.articleName;
+res.send(createTemplate (articles[articleName]));
 });  
 
-app.get('/article-two.html', function (req, res)
-{res.send(createTemplate (articleOne))
-});  
 
-app.get('/article-three.html', function (req, res)
-{res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});  
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
