@@ -5,9 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
+
 
 var articles = {
 
@@ -70,8 +68,7 @@ var htmlTemplate = `
    <head>
    <title>
       ${title}
-      </title>
-       
+   </title>
         <meta name="viewport" content="width-device-width, initial-scale=1" />
        
         <link href="/ui/style.css" rel="stylesheet" />
@@ -88,7 +85,7 @@ var htmlTemplate = `
            ${heading}
        </h3>
        <div>
-           4th August 2017
+           5th August 2017
        </div>
        <div>
           
@@ -105,6 +102,9 @@ var htmlTemplate = `
 return htmlTemplate
 ;}
 
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
 
 app.get('/:articleName', function (req, res){
   //articleName == article-one  
