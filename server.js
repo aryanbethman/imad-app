@@ -43,7 +43,6 @@ var articles = {
                Hi all! Welcome to Article two of http://aryanbethman6.imad.hasura-app.io/.The creator of this page is Aryan Bethmangalkar.
                I love programming!!Goodbye and Thank you for reading! </p> `
                },
-               
 'article-three' : {
     title: 'Article Three | Aryan',
     heading: 'Article Three',
