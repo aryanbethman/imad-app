@@ -7,9 +7,8 @@ app.use(morgan('combined'));
 
 
 
-var articles = {
+var articleOne = {
 
-'article-one' : {
   title: 'Article One | Aryan',
   heading: 'Article One',
   content: ` <p>
@@ -35,8 +34,8 @@ var articles = {
                I love programming!!Goodbye and Thank you for reading! Hi all! Welcome to Article one of http://aryanbethman6.imad.hasura-app.io/.The creator of this page is Aryan Bethmangalkar.
                I love programming!!Goodbye and Thank you for reading!
            </p>`
-},
-'article-two' : {
+};
+/*'article-two' : {
     title: 'Article Two | Aryan',
     heading: 'Article Two',
     content: ` <p>
@@ -53,7 +52,7 @@ var articles = {
 
 }
 };
-    
+*/    
 
 
 
@@ -114,7 +113,7 @@ app.get('/', function (req, res) {
   //res.send(createTemplate (articles[articleName]));
 //});  
 
-app.get('/ui/article-one', function (req, res) {
+app.get('/article-one', function (req, res) {
   res.send(createTemplate(article-one));
 });
 
