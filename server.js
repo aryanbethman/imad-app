@@ -114,7 +114,7 @@ app.get('/', function (req, res) {
   //res.send(createTemplate (articles[articleName]));
 //});  
 
-app.get('/article-one', function (req, res) {
+app.get('/ui/article-one', function (req, res) {
   res.send(createTemplate(article-one));
 });
 
