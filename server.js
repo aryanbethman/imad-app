@@ -61,6 +61,7 @@ function createTemplate (data) {
     var title = data.title;
     var heading = data.heading;
     var content = data.content;
+    var date = data.date;
 
 var htmlTemplate = `
 <html>
@@ -84,7 +85,7 @@ var htmlTemplate = `
            ${heading}
        </h3>
        <div>
-           5th August 2017
+           ${date}
        </div>
        <div>
           
@@ -98,20 +99,24 @@ var htmlTemplate = `
    
 </html>`;
 
-return htmlTemplate
-;}
+return htmlTemplate;
+    
+}
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/:articleName', function (req, res){
+//app.get('/:articleName', function (req, res){
   //articleName == article-one  
   //articles[articleName] == {} content object for article one
-  var articleName = req.params.articleName;
-res.send(createTemplate (articles[articleName]));
-});  
+  //var articleName = req.params.articleName;
+  //res.send(createTemplate (articles[articleName]));
+//});  
 
+app.get('/article-one', function (req, res) {
+  res.send(createTemplate(article-one));
+});
 
 
 app.get('/ui/style.css', function (req, res) {
