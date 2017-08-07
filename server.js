@@ -7,7 +7,9 @@ app.use(morgan('combined'));
 
 
 
-var articleOne = {
+var articles = {
+    
+  'article-one' : {
 
   title: 'Article One | Aryan',
   heading: 'Article One',
@@ -34,8 +36,8 @@ var articleOne = {
                I love programming!!Goodbye and Thank you for reading! Hi all! Welcome to Article one of http://aryanbethman6.imad.hasura-app.io/.The creator of this page is Aryan Bethmangalkar.
                I love programming!!Goodbye and Thank you for reading!
            </p>`
-};
-/*'article-two' : {
+},
+'article-two' : {
     title: 'Article Two | Aryan',
     heading: 'Article Two',
     content: ` <p>
@@ -52,7 +54,7 @@ var articleOne = {
 
 }
 };
-*/    
+    
 
 
 
@@ -123,7 +125,7 @@ app.get('/ui/madi.png', function (req, res) {
 */
 
 app.get('/article-one', function (req, res) {
-  res.send(createTemplate(articleOne));
+  res.send(createTemplate(articles[article-one]));
 });
 
 // Do not change port, otherwise your app won't run on IMAD servers
